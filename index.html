@@ -245,6 +245,17 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#get-received-transaction-list-by-address" class="toc-h1 toc-link" data-title="Get received transaction list by address">Get received transaction list by address</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request-4" class="toc-h2 toc-link" data-title="Get received transaction list by address">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#request-parameters-2" class="toc-h2 toc-link" data-title="Get received transaction list by address">Request Parameters</a>
+                  </li>
+              </ul>
+          </li>
       </div>
     </div>
     <div class="page-wrapper">
@@ -258,8 +269,7 @@
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"address"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x2B5C6B3ECC3fC1401A2dAa555537eFC601DE1488"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"privateKey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x06e350e9e577cf348a9dbdbdd32f2ca5a1dd5ada68b023d2870d940a55b925a7"</span><span class="w">  
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"5034858393984934"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
@@ -301,11 +311,6 @@
 <td>Client ID</td>
 </tr>
 <tr>
-<td>address</td>
-<td>optional</td>
-<td>Wallet ID</td>
-</tr>
-<tr>
 <td>contract</td>
 <td>optional</td>
 <td>Smart contract address (<strong>only ERC20 tokens</strong>)</td>
@@ -318,7 +323,6 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x2B5C6B3ECC3fC1401A2dAa555537eFC601DE1488"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x52B6b72d2b6EFc4AC4BE30E42B7b67BB7dc39cdD"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"privateKey"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"0x06e350e9e577cf348a9dbdbdd32f2ca5a1dd5ada68b023d2870d940a55b925a7"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
   </span><span class="s2">"contract"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x4e005a760e00e17c4912a8070eec047cfecbabbb"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -352,22 +356,78 @@
 <tr>
 <td>from_address</td>
 <td>required</td>
-<td>Sender&#39;s wallet address</td>
+<td>Sender&#39;s client id</td>
 </tr>
 <tr>
 <td>to_address</td>
 <td>required</td>
-<td>Receiver&#39;s wallet address</td>
-</tr>
-<tr>
-<td>privateKey</td>
-<td>required</td>
-<td>Sender&#39;s privateKey</td>
+<td>Receiver&#39;s client id</td>
 </tr>
 <tr>
 <td>amount</td>
 <td>required</td>
 <td>Amount to send</td>
+</tr>
+<tr>
+<td>contract</td>
+<td>optional</td>
+<td>Smart contract address(<strong>Required for only ERC20 tokens</strong>)</td>
+</tr>
+</tbody></table>
+<h1 id='get-received-transaction-list-by-address'>Get received transaction list by address</h1>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">-</span><span class="w"> </span><span class="err">success</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x6f9acb64d35f1fe1fbd7a86136e4939858c04b5ae3f9e1991a709d3b59efd8d5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receive"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1525961039"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.005</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xcd481076ac6a67764b8aaa0808d5f1641791c80b3b287afe7cf478266c045df0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receive"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1525894323"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0xd0fe1eb1faad2c98a3c49459ab326a28c811d28a16916580fde5162cc3718629"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receive"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1525775359"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"txid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0x089ac299fca67593ba3eb38011e57ac4c8066b32f58c725609e309dec7642b05"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"receive"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1525601868"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="err">-</span><span class="w"> </span><span class="err">failed</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Error</span><span class="w"> </span><span class="err">message&gt;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST /transaction/list</code></p>
+<h3 id='request-parameters-2'>Request Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>required</td>
+<td>Client ID</td>
 </tr>
 <tr>
 <td>contract</td>
