@@ -14,8 +14,8 @@ You're going to need:
 ### Getting Set Up
 
 1. Fork this repository on Github.
-2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/JaagCoin.git`
-3. `cd JaagCoin`
+2. Clone *your forked repository* (not our original one) to your hard drive
+3. `cd GLC-Web-API`
 4. Initialize and start Slate. You can either do this locally, or with Vagrant:
 
 ```shell
