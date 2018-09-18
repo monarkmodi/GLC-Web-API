@@ -1,6 +1,6 @@
 # JaagCoin
 
-Getting Started with JAAG Coin
+Getting Started with GLC API
 ------------------------------
 
 ### Prerequisites
