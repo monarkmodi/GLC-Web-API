@@ -1,4 +1,4 @@
-# JaagCoin
+# GLC
 
 Getting Started with GLC API
 ------------------------------
